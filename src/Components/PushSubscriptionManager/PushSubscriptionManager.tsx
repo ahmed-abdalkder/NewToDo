@@ -71,11 +71,7 @@ export async function subscribeUserToPush() {
     };
 
     // If there is no token (user not logged in), stop the function
-<<<<<<< HEAD
-     
-=======
-    if (!token) { return }
->>>>>>> 53b6de5 (first commit)
+ 
 
     // Send subscription details to backend API to save it (with token authorization)
     await axios.post('https://server-to-do-lake.vercel.app/subscriptions/api/save-subscription', subscriptionToSend, {
@@ -84,10 +80,7 @@ export async function subscribeUserToPush() {
         'Content-Type': 'application/json',
       },
     });
-<<<<<<< HEAD
  
-=======
->>>>>>> 53b6de5 (first commit)
 
   } catch (error) {
     // Log any errors that happen during the subscription process
@@ -119,9 +112,4 @@ const PushSubscriptionManager = () => {
 
 // Export the component to be used in the app (typically placed near root)
 export default PushSubscriptionManager;
-<<<<<<< HEAD
-
-
  
-=======
->>>>>>> 53b6de5 (first commit)
