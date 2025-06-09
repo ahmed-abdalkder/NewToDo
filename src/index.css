@@ -1,0 +1,53 @@
+/* styles.css or app.css */
+
+/* --- Component Purpose --- */
+/*
+   This stylesheet defines global styles, font imports, utility plugins, 
+   and custom TailwindCSS settings for the entire application.
+   It includes font configuration, dark mode variant, and a few utility classes.
+*/
+
+/* --- Imports --- */
+
+/* Import Google Fonts (Inter) with various weights and italic styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+/* Import TailwindCSS core styles */
+@import "tailwindcss";
+
+/* Define a custom dark mode variant using :where() to match .dark or any child with .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Import Flowbite React plugin for TailwindCSS */
+@plugin "flowbite-react/plugin/tailwindcss";
+
+/* Import Flowbite class list from local source (used for PurgeCSS safelisting) */
+@source "../.flowbite-react/class-list.json";
+
+
+/* --- Global Styles --- */
+
+/* Remove underline from all links and inherit text color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Apply the custom font-family from Tailwind config or CSS variables */
+body {
+  font-family: var(--font-family); /* Ensure this variable is defined in Tailwind config or global CSS */
+}
+
+/* Utility container class used throughout the layout to limit max width and add padding */
+.container {
+  @apply w-[95%] mx-auto px-4; /* 95% width, centered horizontally, with horizontal padding */
+}
+
+/* Active link style (used for navigation highlighting) */
+.active {
+  @apply underline text-sky-400; /* Underline the link and give it a sky blue color */
+}
+
+
+
+ 
