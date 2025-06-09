@@ -39,12 +39,7 @@ function arrayBufferToBase64(buffer: ArrayBuffer | null): string {
   }
   // Encode the binary string to base64
   return window.btoa(binary);
-}
-<<<<<<< HEAD
- 
-=======
->>>>>>> 53b6de5 (first commit)
-
+} 
 // This async function handles the subscription of the user to push notifications.
 export async function subscribeUserToPush() {
   try {
