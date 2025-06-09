@@ -27,10 +27,7 @@ import toast from "react-hot-toast";
 // Import toast for showing user notifications (success, error messages)
 
 import { useTranslation } from "react-i18next"; 
-<<<<<<< HEAD
  
-=======
->>>>>>> 53b6de5 (first commit)
 // Import useTranslation hook for internationalization (i18n), to support multiple languages
 
 
@@ -78,11 +75,7 @@ const Signin = () => {
 
       // Show success notification with translated message
       toast.success(t("login_success"));
-<<<<<<< HEAD
-  
-=======
-
->>>>>>> 53b6de5 (first commit)
+ 
       // Redirect to the /home page after 1 second delay
       setTimeout(() => {
         navigate("/home");
