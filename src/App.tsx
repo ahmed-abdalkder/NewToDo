@@ -34,14 +34,14 @@ import { Toaster } from 'react-hot-toast';
 // Hook to handle side effects
 import { useEffect } from 'react';
 
+ 
+
 // Internationalization
 import { useTranslation } from 'react-i18next';
 
 
 function App() {
   const { i18n } = useTranslation();
-
- 
 
   // Set up application routes
   const router = createBrowserRouter([

@@ -1,4 +1,6 @@
  
+
+
  // This utility manages the subscription of the current user to push notifications.
 // It ensures the user is authenticated, requests notification permission,
 // subscribes to the browser push service, and sends the subscription to the backend.
@@ -40,7 +42,7 @@ function arrayBufferToBase64(buffer: ArrayBuffer | null): string {
 // --- Main function to handle push notification subscription for authenticated users ---
 export async function subscribeUserToPush() {
   // Retrieve token from sessionStorage to verify if user is logged in
-  const token = sessionStorage.getItem('tkn');
+  const token = localStorage.getItem('tkn');
   if (!token) {
     console.warn(' No token found. User not authenticated.');
     return;
@@ -92,7 +94,7 @@ export async function subscribeUserToPush() {
     });
 
     // Log success
-    console.log(' Push subscription saved successfully.');
+    console.log('✅ Push subscription saved successfully.');
   } catch (error) {
     // Catch any error and log it
     console.error(' Error during push subscription:', error);

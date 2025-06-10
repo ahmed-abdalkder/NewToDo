@@ -65,10 +65,7 @@ const Signin = () => {
       if (rememberMe) {
         localStorage.setItem("tkn", data.token);
         localStorage.setItem("name", data.user.name);
-      } else {
-        sessionStorage.setItem("tkn", data.token);
-        sessionStorage.setItem("name", data.user.name);
-      }
+      } 
 
       // Update global auth state with new token and user name
       setToken(data.token);
@@ -76,15 +73,16 @@ const Signin = () => {
 
       // Show success notification with translated message
       toast.success(t("login_success"));
-   
+    
       // Redirect to the /home page after 1 second delay
       setTimeout(() => {
         navigate("/home");
       }, 1000);
-      const permission = await Notification.requestPermission();
+   const permission = await Notification.requestPermission();
    if (permission === 'granted') {
     await subscribeUserToPush();
 }
+
     } catch (err: unknown) {
       // Handle errors from server or network
       if (typeof err === 'object' && err !== null && 'response' in err) {
