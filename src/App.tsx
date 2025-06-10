@@ -40,12 +40,10 @@ import PushSubscriptionManager from './Components/PushSubscriptionManager/PushSu
 // Internationalization
 import { useTranslation } from 'react-i18next';
 
- 
-function App() {
-  const { i18n } = useTranslation(); // i18n object to handle language switching
 
-  // Register service worker and ask for push notification permission
- 
+function App() {
+  const { i18n } = useTranslation();
+
   useEffect(() => {
     // Register Service Worker after window loads
     if ('serviceWorker' in navigator) {

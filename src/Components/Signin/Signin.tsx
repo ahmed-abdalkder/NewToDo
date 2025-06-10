@@ -55,7 +55,7 @@ const Signin = () => {
     try {
       // Send POST request with email and password to login endpoint
       const { data } = await axios.post(
-        "https://server-to-do-lake.vercel.app/api/users/login",
+        "http://localhost:3000/api/users/login",
         values
       );
 
@@ -75,7 +75,7 @@ const Signin = () => {
 
       // Show success notification with translated message
       toast.success(t("login_success"));
- 
+  
       // Redirect to the /home page after 1 second delay
       setTimeout(() => {
         navigate("/home");

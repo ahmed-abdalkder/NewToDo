@@ -13,12 +13,8 @@ import userImage from "../../assets/user.jpeg";
 // Importing React hooks and the AuthContext to access and manage auth state
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/Auth/AuthContext";
-<<<<<<< HEAD
  
  
-=======
-import todooz from "../../assets/2.png"
->>>>>>> 53b6de5 (first commit)
 // useTranslation is used for internationalization (i18n) support
 import { useTranslation } from 'react-i18next';
 
@@ -68,7 +64,6 @@ const Navbar = () => {
 
   return (
     // Outer navbar container with border and shadow
-<<<<<<< HEAD
    <div className="shadow border-b border-b-slate-200 bg-main-color">
             <div className='container py-3 flex items-center justify-between '>
                 <div className="text-center text-2xl font-medium">
@@ -77,21 +72,6 @@ const Navbar = () => {
                     </h1>
                 </div>
          
-=======
-    <div className="shadow border-b border-b-slate-200 bg-main-color">
-      <div className='container py-3 flex items-center justify-between'>
-        
-        {/* App title/logo */}
-        <div className="text-center text-2xl font-medium">
-          <img src={todooz} className="w-36 h-20" alt="" />
-          {/* <h1>
-            TO
-            <span className="text-sky-600">
-              D<i className="text-3xl fa-regular fa-circle-check"></i>
-            </span>
-          </h1> */}
-        </div>
->>>>>>> 53b6de5 (first commit)
 
         {/* Right section of navbar */}
         <div className="relative flex items-center gap-x-4">

@@ -39,7 +39,9 @@ function arrayBufferToBase64(buffer: ArrayBuffer | null): string {
   }
   // Encode the binary string to base64
   return window.btoa(binary);
-} 
+}
+ 
+
 // This async function handles the subscription of the user to push notifications.
 export async function subscribeUserToPush() {
   try {
@@ -71,10 +73,10 @@ export async function subscribeUserToPush() {
     };
 
     // If there is no token (user not logged in), stop the function
- 
+     
 
     // Send subscription details to backend API to save it (with token authorization)
-    await axios.post('https://server-to-do-lake.vercel.app/subscriptions/api/save-subscription', subscriptionToSend, {
+    await axios.post('http://localhost:3000/subscriptions/api/save-subscription', subscriptionToSend, {
       headers: {
         token,
         'Content-Type': 'application/json',
@@ -112,4 +114,6 @@ const PushSubscriptionManager = () => {
 
 // Export the component to be used in the app (typically placed near root)
 export default PushSubscriptionManager;
+
+
  
