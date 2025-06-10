@@ -80,7 +80,7 @@ const TodoContextProvider = ({ children }: Props) => {
   async function getTasks(id: string) {
     try {
       // Make GET request to API to fetch tasks for a specific todo ID with auth token
-      const { data } = await axios.get(`http://localhost:3000/api/todos/${id}/tasks`, {
+      const { data } = await axios.get(`https://server-to-do-lake.vercel.app/api/todos/${id}/tasks`, {
         headers: { token },  
       });
       const tasks = data;
@@ -104,7 +104,7 @@ const TodoContextProvider = ({ children }: Props) => {
   async function addTask(id: string, text: string, date?: Date) {
     try {
       await axios.post(
-        `http://localhost:3000/api/todos/${id}/task`,
+        `https://server-to-do-lake.vercel.app/api/todos/${id}/task`,
         { text, date: date ? date.toISOString() : null },
         { headers: { token } }
       );
@@ -118,7 +118,7 @@ const TodoContextProvider = ({ children }: Props) => {
   async function updateTask(id: string, taskId: string, text: string, completed: boolean) {
     try {
       await axios.put(
-        `http://localhost:3000/api/todos/${id}/task/${taskId}`,
+        `https://server-to-do-lake.vercel.app/api/todos/${id}/task/${taskId}`,
         { text, completed },
         { headers: { token } }
       );
@@ -131,7 +131,7 @@ const TodoContextProvider = ({ children }: Props) => {
   // Delete a task by its ID from a todo, then refresh the task list
   async function deleteTask(id: string, taskId: string) {
     try {
-      await axios.delete(`http://localhost:3000/api/todos/${id}/task/${taskId}`, {
+      await axios.delete(`https://server-to-do-lake.vercel.app/api/todos/${id}/task/${taskId}`, {
         headers: { token },
       });
       await getTasks(id); // refresh tasks after deletion

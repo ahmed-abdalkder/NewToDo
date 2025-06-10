@@ -22,7 +22,7 @@ const Signup = () => {
   async function signup(name: string, email: string, password: string) {
     try {
       // Send POST request to backend API to register new user
-      await axios.post('http://localhost:3000/api/users/register', {
+      await axios.post('https://server-to-do-lake.vercel.app/api/users/register', {
         name,
         email,
         password
