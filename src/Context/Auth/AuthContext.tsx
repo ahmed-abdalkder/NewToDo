@@ -32,9 +32,9 @@ const AuthContextProvider = ({ children }: Props) => {
   // Helper functions to get initial token and username from localStorage or sessionStorage
   // If token or username exist in localStorage, use that; else fallback to sessionStorage
   const getInitialToken = () =>
-    localStorage.getItem("tkn") ;
+    localStorage.getItem("tkn") || sessionStorage.getItem("tkn");
   const getInitialUserName = () =>
-    localStorage.getItem("name") ;
+    localStorage.getItem("name") || sessionStorage.getItem("name");
 
   // Initialize React state with the token and username retrieved from storage
   const [token, setToken] = useState<string | null>(getInitialToken);
@@ -44,11 +44,11 @@ const AuthContextProvider = ({ children }: Props) => {
   useEffect(() => {
     if (!token) {
       localStorage.removeItem("tkn");
-       
+      sessionStorage.removeItem("tkn");
     }
     if (!userName) {
       localStorage.removeItem("name");
-      
+      sessionStorage.removeItem("name");
     }
   }, [token, userName]);
 

@@ -42,7 +42,8 @@ function arrayBufferToBase64(buffer: ArrayBuffer | null): string {
 // --- Main function to handle push notification subscription for authenticated users ---
 export async function subscribeUserToPush() {
   // Retrieve token from sessionStorage to verify if user is logged in
-  const token = localStorage.getItem('tkn');
+  const token = sessionStorage.getItem('tkn') || localStorage.getItem('tkn');
+  
   if (!token) {
     console.warn(' No token found. User not authenticated.');
     return;

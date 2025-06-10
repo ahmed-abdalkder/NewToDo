@@ -45,9 +45,9 @@ const Navbar = () => {
   const signout = () => {
     // Remove tokens and username from both local and session storage
     localStorage.removeItem("tkn");
-     
+    sessionStorage.removeItem("tkn");
     localStorage.removeItem("name");
-    
+    sessionStorage.removeItem("name");
 
     // Clear auth state
     setToken(null);
