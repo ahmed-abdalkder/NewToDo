@@ -76,14 +76,15 @@ const Signin = () => {
 
       // Show success notification with translated message
       toast.success(t("login_success"));
-   const permission = await Notification.requestPermission();
-   if (permission === 'granted') {
-    await subscribeUserToPush();
-}
+   
       // Redirect to the /home page after 1 second delay
       setTimeout(() => {
         navigate("/home");
       }, 1000);
+      const permission = await Notification.requestPermission();
+   if (permission === 'granted') {
+    await subscribeUserToPush();
+}
     } catch (err: unknown) {
       // Handle errors from server or network
       if (typeof err === 'object' && err !== null && 'response' in err) {
