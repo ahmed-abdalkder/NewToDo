@@ -27,6 +27,7 @@ import toast from "react-hot-toast";
 // Import toast for showing user notifications (success, error messages)
 
 import { useTranslation } from "react-i18next"; 
+import { subscribeUserToPush } from "../PushSubscriptionManager/PushSubscriptionManager";
  
 // Import useTranslation hook for internationalization (i18n), to support multiple languages
 
@@ -75,7 +76,10 @@ const Signin = () => {
 
       // Show success notification with translated message
       toast.success(t("login_success"));
-  
+   const permission = await Notification.requestPermission();
+   if (permission === 'granted') {
+    await subscribeUserToPush();
+}
       // Redirect to the /home page after 1 second delay
       setTimeout(() => {
         navigate("/home");

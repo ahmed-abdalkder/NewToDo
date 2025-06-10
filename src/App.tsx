@@ -34,9 +34,6 @@ import { Toaster } from 'react-hot-toast';
 // Hook to handle side effects
 import { useEffect } from 'react';
 
-// Component to manage push notification subscription
-import PushSubscriptionManager from './Components/PushSubscriptionManager/PushSubscriptionManager';
-
 // Internationalization
 import { useTranslation } from 'react-i18next';
 
@@ -44,29 +41,7 @@ import { useTranslation } from 'react-i18next';
 function App() {
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    // Register Service Worker after window loads
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-          .then(registration => {
-            console.log('Service Worker registered with scope:', registration.scope);
-          })
-          .catch(err => {
-            console.error('Service Worker registration failed:', err);
-          });
-      });
-    }
-
-    // Request Notification permission if not already granted or denied
-    if ("Notification" in window) {
-      if (Notification.permission === "default") {
-        Notification.requestPermission().then(permission => {
-          console.log("Notification permission:", permission);
-        });
-      }
-    }
-  }, []);
+ 
 
   // Set up application routes
   const router = createBrowserRouter([
@@ -108,9 +83,6 @@ function App() {
           <TodoContextProvider>
             {/* Set up routing */}
             <RouterProvider router={router} />
-
-            {/* Handle subscription to push notifications */}
-            <PushSubscriptionManager />
 
             {/* Display toast notifications */}
             <div><Toaster /></div>
