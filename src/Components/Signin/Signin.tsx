@@ -221,22 +221,23 @@ useEffect(() => {
             </button>
             <Link
               to="/"
-              className="!text-sky-400  cursor-pointer font-medium rounded-lg text-sm w-full md:w-auto block px-8 py-2.5 text-center md:ms-auto"
+              className="!text-sky-400  cursor-pointer font-medium rounded-lg text-sm w-full md:w-auto block px-8 py-2.5 text-center md:ms-auto mb-2"
             >
               {t("register")}
             </Link>
 
-             <button
+            
+          </div>
+           <button
             type="button"
             onClick={() => {
-              window.location.href = "http://localhost:5000/auth/google";
+              window.location.href = "https://server-to-do-lake.vercel.app/auth/google";
             }}
             className="cursor-pointer flex items-center justify-center gap-3 w-full py-2 bg-white border border-gray-300  text-gray-800 hover:bg-gray-100 rounded-lg transition"
           >
             <FcGoogle className="text-xl" />
             Continue with Google
           </button>
-          </div>
         </form>
       </div>
     </div>
