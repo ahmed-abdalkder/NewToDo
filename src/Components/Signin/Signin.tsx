@@ -2,7 +2,7 @@
 // handling user input validation, submitting login requests to the server,
 // managing authentication state, and navigating the user after successful login.
 
-import React from "react"; 
+import React, { useEffect } from "react"; 
 // Import React (optional in newer React versions but still common)
 
 import axios from "axios"; 
@@ -28,6 +28,7 @@ import toast from "react-hot-toast";
 
 import { useTranslation } from "react-i18next"; 
 import { subscribeUserToPush } from "../PushSubscriptionManager/PushSubscriptionManager";
+import { FcGoogle } from "react-icons/fc";
  
 // Import useTranslation hook for internationalization (i18n), to support multiple languages
 
@@ -97,7 +98,18 @@ const Signin = () => {
       }
     }
   }
+useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token: string | null = params.get("token");
 
+    if (token) {
+        
+      localStorage.setItem("toky", token);
+      setToken(token);
+      toast.success('success');
+      navigate("/user/home");
+    }
+  }, [ ]);
   // Initialize Formik to manage form state, validation, and submission
   const formik = useFormik({
     initialValues: {
@@ -213,6 +225,17 @@ const Signin = () => {
             >
               {t("register")}
             </Link>
+
+             <button
+            type="button"
+            onClick={() => {
+              window.location.href = "http://localhost:5000/auth/google";
+            }}
+            className="cursor-pointer flex items-center justify-center gap-3 w-full py-2 bg-white border border-gray-300  text-gray-800 hover:bg-gray-100 rounded-lg transition"
+          >
+            <FcGoogle className="text-xl" />
+            Continue with Google
+          </button>
           </div>
         </form>
       </div>
